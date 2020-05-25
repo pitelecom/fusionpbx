@@ -182,11 +182,13 @@
 		//build menu by style
 			switch ($_SESSION['theme']['menu_style']['text']) {
 				case 'side':
-					$container_open = "<div id='menu_side_container'>\n";
+					$menu_side_toggle = $_SESSION['theme']['menu_side_toggle']['text'] == 'hover' ? " onmouseenter=\"if ($('#menu_side_container').width() < 100) { menu_side_expand(); }\" onmouseleave=\"if ($('#menu_side_container').width() > 100 && $('#menu_side_state_current').val() != 'expanded') { menu_side_contract(); }\"" : null;
+					$container_open = "<div id='menu_side_container' class='hide-xs' ".$menu_side_toggle." >\n";
 					$menu = new menu;
 					$menu->text = $text;
 					$menu_html = $menu->menu_vertical($_SESSION['menu']['array']);
 					unset($menu);
+					$view->assign('menu_side_state', (isset($_SESSION['theme']['menu_side_state']['text']) && $_SESSION['theme']['menu_side_state']['text'] != '' ? $_SESSION['theme']['menu_side_state']['text'] : 'contracted'));
 					break;
 				case 'inline':
 					$container_open = "<div class='container-fluid' style='padding: 0;' align='".($_SESSION['theme']['logo_align']['text'] != '' ? $_SESSION['theme']['logo_align']['text'] : 'left')."'>\n";
