@@ -948,7 +948,7 @@ if (!class_exists('menu')) {
 
 				if ($menu_brand) {
 					//define menu brand mark
-						$menu_brand_text = ($_SESSION['theme']['menu_brand_text']['text'] != '') ? escape($_SESSION['theme']['menu_brand_text']['text']) : "FusionPBX";
+						$menu_brand_text = ($_SESSION['theme']['menu_brand_text']['text'] != '') ? escape($_SESSION['theme']['menu_brand_text']['text']) : "xPBX";
 						switch ($_SESSION['theme']['menu_brand_type']['text']) {
 							case 'text':
 								$html .= "			<a class='navbar-brand-text' href='".PROJECT_PATH."/'>".$menu_brand_text."</a>\n";
@@ -1092,7 +1092,7 @@ if (!class_exists('menu')) {
 					$html .= "		<a class='menu_side_item_main menu_side_contract' onclick='menu_side_contract();' style='".($_SESSION['theme']['menu_side_pin']['boolean'] == 'true' ? "max-width: calc(100% - 50px);" : null)." ".($_SESSION['theme']['menu_side_state']['text'] != 'expanded' ? "display: none;" : null)."' title=\"".$this->text['theme-label-contract_menu']."\"><i class='fas fa-bars fa-fw' style='z-index: 99800; padding-left: 1px;'></i></a>";
 				}
 				if ($_SESSION['theme']['menu_brand_type']['text'] == 'text') {
-					$menu_brand_text = $_SESSION['theme']['menu_brand_text']['text'] != '' ? escape($_SESSION['theme']['menu_brand_text']['text']) : "FusionPBX";
+					$menu_brand_text = $_SESSION['theme']['menu_brand_text']['text'] != '' ? escape($_SESSION['theme']['menu_brand_text']['text']) : "xPBX";
 					$html .= "		<a class='menu_brand_text' ".($_SESSION['theme']['menu_side_state']['text'] != 'expanded' ? "style='display: none;'" : null)." href='".PROJECT_PATH."/'>".$menu_brand_text."</a>\n";
 				}
 				if ($_SESSION['theme']['menu_brand_type']['text'] == 'image' || $_SESSION['theme']['menu_brand_type']['text'] == '') {
